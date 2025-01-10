@@ -1,0 +1,47 @@
+h3{
+    color: aquamarine;
+}
+
+p,a{
+    color: green;
+}
+
+li{
+    list-style-type: square;
+}
+
+.special{
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+span.special{
+    color: pink;
+    font-family: cursive;
+}
+
+p em{
+    color: darkblue;
+    /* em tags inside p tag will have this */
+}
+
+a:hover{
+    color: crimson;
+    text-decoration: solid;
+}
+
+#heading{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(202, 202, 52);
+    background-color: black;
+}
+
+p#one{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: bisque;
+}
+
+li[class] {
+    font-size: 300%;
+}
