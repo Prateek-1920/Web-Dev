@@ -1,0 +1,33 @@
+body{
+
+    font-size: 18pxpx;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h3{
+    font-size: 28px;
+}
+
+#sidebar{
+    width: 35%;
+    float: left;
+}
+
+#main{
+    width: 65%;
+    float: right;
+}
+
+@media all and ( min-width : 1001px){
+    #sidebar ul li a:after{
+        content: "(" attr(data-email) ")" ;
+    }
+}
+
+@media all and (max-width : 1000px) and (min-width : 700px) {
+    #sidebar ul li a:before{
+        content: "Email : ";
+        color: brown;
+    }
+}
+

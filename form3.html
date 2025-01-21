@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Conference Registration Form</h1>
+<form id="registrationForm" action="/submit" method="POST" enctype="multipart/form-data">
+
+    <fieldset>
+        <legend>Participant Details</legend>
+
+        <div class="form-group">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name." required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="\d{10}" required placeholder="10-digit phone number">
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="60" required>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Event Preferences</legend>
+
+        <div class="form-group">
+            <label for="events">Select up to two events:</label>
+            <select id="events" name="events[]" multiple required>
+                <option value="Coding Contest">Coding Contest</option>
+                <option value="Hackathon">Hackathon</option>
+                <option value="Paper Presentation">Paper Presentation</option>
+                <option value="Robotics Challenge">Robotics Challenge</option>
+                <option value="Keynote Session">Keynote Session</option>
+            </select>
+            <p class="note">Hold Ctrl (Windows) or Command (Mac) to select multiple options.</p>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Accommodation Details</legend>
+
+        <div class="form-group">
+            <label>Accommodation Type:</label>
+            <input type="radio" id="hostel" name="accommodation" value="Hostel" required>
+            <label for="hostel">Hostel</label><br>
+
+            <input type="radio" id="hotel" name="accommodation" value="Hotel">
+            <label for="hotel">Hotel</label><br>
+
+            <input type="radio" id="none" name="accommodation" value="None">
+            <label for="none">None</label><br>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Dietary Preferences</legend>
+    
+        <div class="form-group">
+            <label>Dietary Preferences:</label>
+            
+            <input type="checkbox" id="vegetarian" name="dietary[]" value="Vegetarian">
+            <label for="vegetarian">Vegetarian</label><br>
+    
+            <input type="checkbox" id="nonVegetarian" name="dietary[]" value="Non-Vegetarian">
+            <label for="nonVegetarian">Non-Vegetarian</label><br>
+    
+            <input type="checkbox" id="vegan" name="dietary[]" value="Vegan">
+            <label for="vegan">Vegan</label><br>
+    
+            <input type="checkbox" id="otherDietary" name="dietary[]" value="Other (Specify below)" onclick="toggleOtherInput()">
+            <label for="otherDietary">Other (Specify below)</label><br>
+    
+            <!-- Other Dietary Preference Input -->
+            <input type="text" id="otherInput" name="otherDietaryPreference" placeholder="Specify other dietary preference." disabled>
+        </div>
+    </fieldset>
+    
+
+    <fieldset>
+        <legend>Additional Info</legend>
+
+        <div class='form-group'>
+          <label for='studentID'>Upload Student ID (PDF only, max size 5 MB):</label>
+          <input type='file' id='studentID' name='studentID' accept='.pdf' required />
+      </div>
+
+      <div class='form-group'>
+          <label for='comments'>Comments/Requests:</label>
+          <textarea id='comments' name='comments' rows='4' maxlength='300'></textarea>
+      </div>
+
+  </fieldset>
+
+  <fieldset>
+      <legend>Consent and Submission</legend>
+
+      <div class='form-group'>
+          <input type='checkbox' id='consent' name='consent' required />
+          <label for='consent'>I agree to the terms and conditions.</label><br />
+      </div>
+
+      <button type='submit'>Submit</button>
+      &nbsp;
+      <button type='reset'>Reset</button>
+  </fieldset>
+
+</form>
+
+<script>
+    function toggleOtherInput() {
+        const otherCheckbox = document.getElementById('otherDietary');
+        const otherInput = document.getElementById('otherInput');
+        
+        if (otherCheckbox.checked) {
+            otherInput.disabled = false; 
+        } else {
+            otherInput.disabled = true;
+            otherInput.value = ''; 
+        }
+    }
+    </script>
+
+</body>
+</html>
