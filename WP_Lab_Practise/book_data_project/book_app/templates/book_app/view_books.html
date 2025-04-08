@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books List</title>
+    <link rel="stylesheet" href="{% static 'book_app/styles.css' %}">
+</head>
+<body>
+    <h2>Books</h2>
+    <ul>
+        {% for book in books %}
+            <li><strong>{{ book.title }}</strong> by {{ book.author.name }}</li>
+        {% empty %}
+            <li>No books added yet.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{%url 'add_book' %}">Add Book</a>
+    <a href="{%url 'add_author' %}">Home</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Metadata</title>
+    <link rel="stylesheet" href="{% static 'book_app/style.css' %}">
+</head>
+<body>
+    <h1>Book Metadata</h1>
+    <p><strong>Title:</strong> The Great Gatsby</p>
+    <p><strong>Author:</strong> F. Scott Fitzgerald</p>
+    <p><strong>Publication Year:</strong> 1925</p>
+    <p><strong>Genre:</strong> Fiction</p>
+
+    <a href="{% url 'home' %}">🏠 Back to Home</a>
+</body>
+</html>

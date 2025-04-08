@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill</title>
+</head>
+<body>
+    <h2>Bill Summary</h2>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Item</th>
+            <th>Brand</th>
+            <th>Price per unit</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+        {% for bill in bills %}
+            <tr>
+                <td>{{ bill.item }}</td>
+                <td>{{ bill.brand }}</td>
+                {% if bill.error %}
+                    <td colspan="3">{{ bill.error }}</td>
+                {% else %}
+                    <td>{{ bill.price }}</td>
+                    <td>{{ bill.quantity }}</td>
+                    <td>{{ bill.total }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

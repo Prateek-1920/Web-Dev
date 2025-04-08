@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Search Result</title></head>
+<body>
+    <h2>Search People Working at a Company</h2>
+    <form method="POST">
+        {% csrf_token %}
+        Enter Company Name: <input type="text" name="company_name" required>
+        <input type="submit" value="Search">
+    </form>
+
+    {% if results %}
+        <h3>People working at {{ company }}:</h3>
+        <ul>
+            {% for name, city in results %}
+                <li>{{ name }} lives in {{ city }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

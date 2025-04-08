@@ -1,0 +1,17 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reviews</title>
+    <link rel="stylesheet" href="{% static 'book_info/style.css' %}">
+</head>
+<body>
+    <h1>Book Reviews</h1>
+    <p>⭐ "A timeless classic that captures the essence of the American dream." - John</p>
+    <p>⭐ "Beautifully written, but a bit overrated." - Sarah</p>
+    
+    <a href="{% url 'home' %}">🏠 Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+        }
+        .percentage {
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Details Form</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- Ensure form fields are properly rendered -->
+        {% for field in form %}
+            <p>
+                <label>{{ field.label }}</label><br>
+                {{ field }}
+            </p>
+        {% endfor %}
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if student_data %}
+        <h3>Entered Student Details:</h3>
+        <textarea readonly>{{ student_data }}</textarea>
+        <p class="percentage">Total Percentage: {{ percentage|floatformat:2 }}%</p>
+    {% endif %}
+</body>
+</html>

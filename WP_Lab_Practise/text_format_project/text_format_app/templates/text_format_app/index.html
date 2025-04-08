@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatter</title>
+    <style>
+        .output {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Text Formatter</h2>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label>Name:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label>Message:</label>
+        <input type="text" name="message" required><br><br>
+
+        <label>Text Format:</label><br>
+        <input type="checkbox" name="bold" value="bold"> Bold <br>
+        <input type="checkbox" name="italic" value="italic"> Italic <br>
+        <input type="checkbox" name="underline" value="underline"> Underline <br><br>
+
+        <label>Text Color:</label>
+        <input type="color" name="color"><br><br>
+
+        <button type="submit">Display</button>
+        <button type="reset">Clear</button>
+        <button type="button" onclick="window.close()">Exit</button>
+    </form>
+
+    {% if formatted_text %}
+        <div class="output">
+            {{ formatted_text|safe }}
+        </div>
+    {% endif %}
+
+</body>
+</html>

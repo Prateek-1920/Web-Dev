@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votes</title>
+</head>
+<body>
+    <h2>How is the book "ASP.NET" with C# by vipul prakash ?</h2>
+
+    <form method="post">
+    {%csrf_token%}
+    <input type="radio" name="vote" value="Good">Good
+    <input type="radio" name="vote" value="Satisfactory">Satisfactory
+    <input type="radio" name="vote" value="Bad">Bad
+    <input type="submit" name="Vote">
+    </form>
+
+    {%if total_votes > 0%}
+        <h3>Current results</h3>
+        <p>Total votes: {{total_votes}}</p>
+        <p>Good: {{percentages.Good|floatformat:2}}%</p>
+        <p>Satisfactory: {{percentages.Satisfactory|floatformat:2}}%</p>
+        <p>Bad: {{percentages.Bad|floatformat:2}}%</p>
+    {%endif%}
+</body>
+</html>

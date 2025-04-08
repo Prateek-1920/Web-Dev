@@ -1,0 +1,17 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publisher Information</title>
+    <link rel="stylesheet" href="{% static 'book_info/style.css' %}">
+</head>
+<body>
+    <h1>Publisher Information</h1>
+    <p><strong>Publisher:</strong> Charles Scribner's Sons</p>
+    <p><strong>Location:</strong> New York, USA</p>
+    
+    <a href="{% url 'home' %}">🏠 Back to Home</a>
+</body>
+</html>

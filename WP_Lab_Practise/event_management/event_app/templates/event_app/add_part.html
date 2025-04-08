@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Participant</title>
+</head>
+<body>
+    <h2>Add Participant</h2>
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+
+    <a href="{%url 'add_event' %}">Add Event</a> <br>
+    <a href="{%url 'show_events' %}">Show events</a>
+
+</body>
+</html>

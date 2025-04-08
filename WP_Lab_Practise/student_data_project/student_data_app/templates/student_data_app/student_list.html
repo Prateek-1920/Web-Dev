@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <h2>Student List</h2>
+    {%for student in students%}
+    <li>{{student.name}} | Roll no: {{student.roll}} | Course: {{student.course}} </li>
+    {%endfor%}
+
+    <a href="{%url 'student_form'%}">Home</a>
+    <a href="{%url 'show_students'%}">View all students</a>
+</body>
+</html>
