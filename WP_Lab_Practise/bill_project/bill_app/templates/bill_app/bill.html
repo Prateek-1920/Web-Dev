@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Bill</title>
+</head>
+
+<body>
+    <h2>Buying Page</h2>
+
+    <form method="post">
+        {%csrf_token%}
+
+        Name: <input type="text" name="buyer" value="Name"> <br>
+
+        <label><input type="checkbox" name="item" value="keyboard">Keyboard 500Rs</label>
+        Quantity : <input type="number" name="keyboard_qty" value="0"> <br>
+
+        <label><input type="checkbox" name="item" value="mouse">Mouse 400Rs</label>
+        Quantity : <input type="number" name="mouse_qty" value="0"> <br>
+
+        <label><input type="checkbox" name="item" value="headphones">Headphones 800Rs</label>
+        Quantity : <input type="number" name="headphones_qty" value="0"> <br>
+
+        <label><input type="checkbox" name="item" value="speakers">Speakers 1000Rs</label>
+        Quantity : <input type="number" name="speakers_qty" value="0"> <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <a href="{%url 'all_bills'%}">See all bills</a>
+
+</body>
+</html>

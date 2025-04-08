@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>BILL</title>
+</head>
+
+<body>
+    {% csrf_token %}
+    <p><strong>Name:</strong> {{ buyer }}</p>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item, qty, amount in bill_details %}
+            <tr>
+                <td>{{ item }}</td>
+                <td>{{ qty }}</td>
+                <td>{{ amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Total: ₹{{ total }}</h3>
+
+    <a href="{% url 'bill' %}">Buy more</a>
+</body>
+</html>

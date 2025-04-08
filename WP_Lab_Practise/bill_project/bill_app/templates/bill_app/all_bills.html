@@ -1,0 +1,44 @@
+<!-- billing_app/templates/billing_app/all_bills.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Bills</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Bills</h2>
+    <table>
+        <tr>
+            <th>Buyer</th>
+            <!-- <th>Items</th> -->
+            <th>Total Amount</th>
+        </tr>
+        {% for bill in bills %}
+        <tr>
+            <td>{{ bill.name }}</td>
+            <!-- <td>{{ bill.items|linebreaksbr }}</td> -->
+            <td>₹{{ bill.total_amount }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="text-align: center;">
+        <a href="{% url 'bill' %}">Add New Bill</a>
+    </div>
+</body>
+</html>
