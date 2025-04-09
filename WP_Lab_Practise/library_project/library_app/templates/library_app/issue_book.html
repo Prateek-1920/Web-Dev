@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>
+            Library Dashboard
+        </title>
+    </head>
+
+
+    <body>
+        
+        <h2>Issue Book</h2>
+        <form method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="{%url 'dashboard'%}">Add book</a>
+
+    </body>
+</html>

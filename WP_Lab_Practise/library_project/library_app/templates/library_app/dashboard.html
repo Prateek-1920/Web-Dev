@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>
+            Library Dashboard
+        </title>
+    </head>
+
+
+    <body>
+        
+        <h2>Issued Books</h2>
+        <ul>
+            {%for issue in issues%}
+            <li>{{issue.book.name}} issued to {{issue.borrower.name}} on {{issue.issue_date}}</li>
+            {%endfor%}
+        </ul>
+
+        <a href="{%url 'add_book'%}">Add book</a>
+        <a href="{%url 'add_borrower'%}">Add borrower</a>
+        <a href="{%url 'issue_book'%}">Issue book</a>
+    </body>
+</html>
